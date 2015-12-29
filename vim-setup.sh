@@ -13,7 +13,7 @@ echo -n "Installing dependencies..."
 silent sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
     libcairo2-dev libx11-dev libxpm-dev libxt-dev python-dev \
-    ruby-dev git --yes
+    ruby-dev git build-essential cmake python-dev --yes
 
 echo -e "\rInstalled dependencies\033[K"
 
