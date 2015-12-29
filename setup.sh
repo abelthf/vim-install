@@ -9,7 +9,6 @@ function silent( )
 echo -n "Builing Vim from Source"
 echo -n "======================="
 
-
 echo -n "Installing dependencies..."
 silent sudo apt-get install libncurses5-dev libgnome2-dev libgnomeui-dev \
     libgtk2.0-dev libatk1.0-dev libbonoboui2-dev \
