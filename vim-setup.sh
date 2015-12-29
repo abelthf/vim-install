@@ -18,14 +18,24 @@ echo -e "\rInstalled dependencies\033[K"
 
 echo -n "Remove vim if you have it already..."
 
-silent sudo apt-get remove vim vim-runtime gvim \
-  vim-tiny vim-common vim-gui-common --yes
+silent sudo apt-get remove --purge vim vim-runtime \
+    gvim vim-gnome vim-tiny vim-common vim-gui-common  --yes
+
+silent sudo rm -rf /usr/local/share/vim
+
+silent sudo rm /usr/bin/vim
+ 
+silent sudo mkdir /usr/include/lua5.1/include
+silent sudo mv /usr/include/lua5.1/*.h /usr/include/lua5.1/include/
+ 
+silent sudo ln -s /usr/bin/luajit-2.0.0-beta9 /usr/bin/luajit
+
 echo -e "removed old version vim"
 
 
 echo -n "Download and configure vim..."
 silent cd ~
-#silent git clone https://github.com/vim/vim.git
+silent git clone https://github.com/vim/vim.git
 silent cd vim
 silent ./configure --with-features=huge \
             --enable-multibyte \
@@ -39,7 +49,7 @@ silent ./configure --with-features=huge \
             --with-luajit \
             --enable-gui=auto \
             --enable-fail-if-missing \
-            --with-lua-prefix=/usr/include/lua5.1
+            --with-lua-prefix=/usr/include/lua5.1 \
             --enable-gui=gtk2 --enable-cscope --prefix=/usr
 
 
